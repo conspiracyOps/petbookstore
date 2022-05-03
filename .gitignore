@@ -1,0 +1,4 @@
+/.idea
+/lsp
+backend/.env
+/docker/logs/nginx/
