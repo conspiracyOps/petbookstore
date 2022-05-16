@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "id": 5,
+      "title": "Android",
+      "slug": "android"
+    },
+    {
+      "id": 4,
+      "title": "Data",
+      "slug": "data"
+    },
+    {
+      "id": 6,
+      "title": "Networking",
+      "slug": "networking"
+    }
+  ]
+}
