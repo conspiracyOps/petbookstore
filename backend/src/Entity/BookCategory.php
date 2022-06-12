@@ -50,6 +50,7 @@ class BookCategory
     public function setSlug($slug): self
     {
         $this->slug = $slug;
+
         return $this;
     }
 
