@@ -21,6 +21,7 @@ class BookService
         if (null == $category) {
             throw new BookCategoryNotFoundException();
         }
+
         return new BookListResponse(array_map(
             [$this, 'map'],
             $this->bookRepository->findBooksByCategoryId($categoryId)
@@ -37,6 +38,5 @@ class BookService
             ->setAuthors($book->getAuthors())
             ->setMeap($book->isMeap())
             ->setPublicationDate($book->getPublicationDate()->getTimestamp());
-
     }
 }

@@ -3,13 +3,14 @@
 namespace App\Controller;
 
 use App\Exception\BookCategoryNotFoundException;
+use App\Model\BookListResponse;
 use App\Service\BookService;
+use Nelmio\ApiDocBundle\Annotation\Model;
 use OpenApi\Annotations as OA;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Model\BookListResponse;
 
 class BookController extends AbstractController
 {
@@ -20,8 +21,8 @@ class BookController extends AbstractController
     /**
      * @OA\Response(
      *     response=200,
-     *      description="Returns book inside a categories",
-     *     @Model(type=BookListResponse:class),
+     *     description="Returns books inside a category",
+     *     @Model(type=BookListResponse::class)
      * )
      */
     #[Route(path: 'api/v1/category/{id}/books')]

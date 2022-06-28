@@ -4,8 +4,6 @@ namespace App\Repository;
 
 use App\Entity\Book;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\OptimisticLockException;
-use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -24,7 +22,6 @@ class BookRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param int $id
      * @return Book[]
      */
     public function findBooksByCategoryId(int $id): array
@@ -34,5 +31,4 @@ class BookRepository extends ServiceEntityRepository
 
         return $query->getResult();
     }
-
 }

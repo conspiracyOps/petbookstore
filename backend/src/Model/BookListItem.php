@@ -21,7 +21,6 @@ class BookListItem
 
     private int $publicationDate;
 
-
     public function getId(): int
     {
         return $this->id;
@@ -80,7 +79,6 @@ class BookListItem
 
     /**
      * @param string[] $authors
-     * @return self
      */
     public function setAuthors(array $authors): self
     {
@@ -112,6 +110,4 @@ class BookListItem
 
         return $this;
     }
-
-
 }
