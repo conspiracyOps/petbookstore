@@ -16,20 +16,15 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class BookServiceTest extends AbstractTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-    }
-
     public function testGetBooksByCategoryNotFound(): void
     {
         $bookRepository = $this->createMock(BookRepository::class);
         $bookCategoryRepository = $this->createMock(BookCategoryRepository::class);
 
         $bookCategoryRepository->expects($this->once())
-            ->method('find')
+            ->method('existsById')
             ->with(130)
-            ->willThrowException(new BookCategoryNotFoundException());
+            ->willReturn(false);
 
         $this->expectException(BookCategoryNotFoundException::class);
         (new BookService($bookRepository, $bookCategoryRepository))->getBooksByCategory(130);
@@ -45,9 +40,9 @@ class BookServiceTest extends AbstractTestCase
 
         $bookCategoryRepository = $this->createMock(BookCategoryRepository::class);
         $bookCategoryRepository->expects($this->once())
-            ->method('find')
+            ->method('existsById')
             ->with(130)
-            ->willReturn(new BookCategory());
+            ->willReturn(true);
 
         $service = new BookService($bookRepository, $bookCategoryRepository);
         $expected = new BookListResponse([$this->createBookItemModel()]);

@@ -12,17 +12,6 @@ services:
     ports:
       - "5432:5432"
 
-  postgres-test:
-    container_name: postgres-test
-    image: postgres:12
-    restart: always
-    environment:
-      POSTGRES_USER: default
-      POSTGRES_PASSWORD: secret
-      POSTGRES_DB: default
-    ports:
-      - "5433:5432"
-
   php-fpm:
     container_name: php-fpm
     build:

@@ -11,7 +11,7 @@ dc-build:
 	$(DOCKER_COMPOSE) build postgres php-fpm nginx
 
 dc-up:
-	$(DOCKER_COMPOSE) up -d postgres postgres-test php-fpm nginx
+	$(DOCKER_COMPOSE) up -d postgres php-fpm nginx
 
 dc-down:
 	$(DOCKER_COMPOSE) down
